@@ -26,7 +26,7 @@ kubectl patch svc springboot-starterkit-svc -p '{"spec": {"type": "LoadBalancer"
 helm install splunk-otel-collector --values splunk-values.yaml --set="splunkObservability.accessToken=***,clusterName=mycluster1,splunkObservability.realm=us1,gateway.enabled=false,splunkObservability.profilingEnabled=true,environment=lab,operator.enabled=true,certmanager.enabled=true,agent.discovery.enabled=true" splunk-otel-collector-chart/splunk-otel-collector --namespace splunk-otel --create-namespace
 ```
 * *replace *** with your o11y INGEST token*
-* *replace xxx with your HEC token*
+* *replace xxx with your HEC token (inside splunk-values.yaml file)*
 
 5. Add the annotation to the springboot app deployment so the autoinstrumentation injects the java agent into the container
 ```
@@ -98,7 +98,7 @@ kubectl get pods
 helm upgrade splunk-otel-collector --values splunk_java2_values.yaml --set="splunkObservability.accessToken=***,clusterName=mycluster1,splunkObservability.realm=us1,gateway.enabled=false,splunkObservability.profilingEnabled=true,environment=lab,operator.enabled=true,certmanager.enabled=true,agent.discovery.enabled=true" splunk-otel-collector-chart/splunk-otel-collector --namespace splunk-otel --create-namespace
 ```
 * *replace *** with your o11y INGEST token*
-* *replace xxx with your HEC token*
+* *replace xxx with your HEC token (inside splunk_java2_values.yaml file)*
 
 6. Delete the app pods that are currently running. ReplicaSet will spin up new pods with the new java 2 injected by the operator.
 ```
