@@ -107,5 +107,8 @@ kubectl delete pod springboot-starterkit-svc-df6567cb9-bjk9k springboot-starterk
 kubectl get pods
 ```
 
-8. Open your Splunk instance and check for logs. This time you see trace and span metadata into the logs.
+8. Hit again the status endpoint to send logs to the Splunk instance
+* http://10.202.12.167/status
+
+9. Open your Splunk instance and check for logs. This time you see trace and span metadata into the logs.
 
