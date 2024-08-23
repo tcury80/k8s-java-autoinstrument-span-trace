@@ -10,7 +10,7 @@
 ```
 helm install --values springboot-starterkit-values.yaml springboot-starterkit-svc springboot/springboot-starterkit-svc
 ```
-We have patched the application to add a log emit inside the status controller. [See](https://github.com/josephrodriguez/springboot-starterkit/commit/8c506856bbb321f641ced6215a15f1067931de44)
+We have patched the application to add a log emit inside the status controller. [See](https://github.com/josephrodriguez/springboot-starterkit/commit/995c13131bb0a263c5a74405057bf155a39329d6)
 
 2. Set the external IP address of the springboot app service
 ```
@@ -52,6 +52,7 @@ helm install --values springboot-starterkit-appproperties-values.yaml springboot
 kubectl patch svc springboot-starterkit-svc -p '{"spec": {"type": "LoadBalancer", "externalIPs":["10.202.12.167"]}}'
 kubectl patch deployment springboot-starterkit-svc -p '{"spec":{"template":{"metadata":{"annotations":{"instrumentation.opentelemetry.io/inject-java":"splunk-otel/splunk-otel-collector"}}}}}'
 ```
+You can see here what we have added to the new image: [See](https://github.com/josephrodriguez/springboot-starterkit/commit/e58e862cbd970fb2de9c69f9fece51d9292262aa)
 
 2. Wait until all recently created springboot pods are ready
 ```
