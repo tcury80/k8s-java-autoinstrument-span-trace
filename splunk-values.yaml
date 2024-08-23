@@ -1,0 +1,5 @@
+splunkPlatform:
+  endpoint: "http://10.202.32.241:8088/services/collector/event"
+  token: "c7ea588c-8bf3-4ac2-81eb-8fc4845adc72"
+  index: "main"
+  logsEnabled: true
